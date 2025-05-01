@@ -3,19 +3,14 @@ import pymysql
 import os
 app = Flask(__name__)
 
-
-
 def get_db_connection():
-    connection = pymysql.connect(
-        host=os.getenv('DB_HOST'),
-        user=os.getenv('DB_USER'),
-        password=os.getenv('DB_PASS'),
-        db=os.getenv('DB_NAME'),
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor
-    )
+    connection = pymysql.connect(host='',  # Replace with your RDS endpoint
+                                 user='dbuser',      # Replace with your RDS username
+                                 password='dbpassword',  # Replace with your RDS password
+                                 db='devprojdb',   # Replace with your database name
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
     return connection
-
 
 @app.route('/health')
 def health():
