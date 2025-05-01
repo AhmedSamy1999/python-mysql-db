@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 def get_db_connection():
-    with open('db_config.txt', 'r') as f:
+    with open("/home/ubuntu/db_config.txt", 'r') as f:
         db_host = f.read().strip()
 
     connection = pymysql.connect(
